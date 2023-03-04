@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { Header } from "./components/Header";
 import { TasksList } from "./components/TasksList";
 
@@ -14,7 +16,7 @@ export interface TaskProps {
 }
 
 export function App() {
-  const [tasks, setTasks] = useLocalStorage<TaskProps[]>("tasks", []);
+  const [tasks, setTasks] = useState<TaskProps[]>([]);
 
   function HandleNewTask(task: TaskProps) {
     const tasksWithSameTitle = tasks.find(
